@@ -34,7 +34,10 @@ module.exports = {
         const { id } = request.params;
         const ngo_id = request.headers.authorization;
 
-        const incident = connection('incidents').where('id', id).select('ngo_id'. ngo_id).first();
+        const incident = await connection('incidents')
+            .where('id', id)
+            .select('ngo_id')
+            .first();
 
         if(incident.ngo_id != ngo_id) {
             return response.status(401).json({ error: 'Operation not permitted.' });

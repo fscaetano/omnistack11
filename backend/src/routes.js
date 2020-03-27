@@ -18,7 +18,7 @@ routes.get('/', (request, response) => {
     });
 });
 
-routes.post('/session', SessionController.create);
+routes.post('/sessions', SessionController.create);
 
 routes.get('/ngos', NgosController.index);
 routes.post('/ngos', NgosController.create);
@@ -27,6 +27,6 @@ routes.get('/profile', ProfileController.index);
 
 routes.get('/incidents', IncidentsController.index);
 routes.post('/incidents', IncidentsController.create);
-routes.delete('/incidents', IncidentsController.delete);
+routes.delete('/incidents/:id', IncidentsController.delete);
 
 module.exports = routes;
